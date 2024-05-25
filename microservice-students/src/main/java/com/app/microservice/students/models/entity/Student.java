@@ -1,4 +1,4 @@
-package com.app.microservice.users.models.entity;
+package com.app.microservice.students.models.entity;
 
 import java.time.LocalDateTime;
 

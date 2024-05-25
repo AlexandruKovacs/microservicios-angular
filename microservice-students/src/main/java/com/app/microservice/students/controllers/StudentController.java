@@ -1,4 +1,4 @@
-package com.app.microservice.users.controllers;
+package com.app.microservice.students.controllers;
 
 import java.util.Optional;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.app.microservice.users.models.entity.Student;
-import com.app.microservice.users.services.StudentService;
+import com.app.microservice.students.models.entity.Student;
+import com.app.microservice.students.services.StudentService;
 import com.microservice.commons.controllers.CommonController;
 
 @RestController

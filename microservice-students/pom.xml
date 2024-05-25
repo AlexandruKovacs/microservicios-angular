@@ -8,10 +8,10 @@
 		<version>3.3.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.app.microservice.users</groupId>
-	<artifactId>microservice-users</artifactId>
+	<groupId>com.app.microservice.students</groupId>
+	<artifactId>microservice-students</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>microservice-users</name>
+	<name>microservice-students</name>
 	<description>Udemy Microservice Course</description>
 	<properties>
 		<java.version>17</java.version>

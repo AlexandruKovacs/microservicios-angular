@@ -1,7 +1,7 @@
 package com.app.microservice.students.services;
 
-import com.app.microservice.students.models.entity.Student;
 import com.microservice.commons.services.CommonService;
+import com.microservice.commons.students.models.entity.Student;
 
 public interface StudentService extends CommonService<Student> {
 	

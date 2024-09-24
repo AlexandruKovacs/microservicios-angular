@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.microservice.commons.exams.models.entity.Exam;
 import com.microservice.commons.students.models.entity.Student;
 
 import jakarta.persistence.Column;
@@ -12,6 +13,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
@@ -33,6 +35,9 @@ public class Course {
 	@OneToMany(fetch = FetchType.LAZY)
 	private List<Student> students;
 	
+	@ManyToMany(fetch = FetchType.LAZY)
+	private List<Exam> exams;
+	
 	@PrePersist
 	public void onCreate() {
 		this.createAt = LocalDateTime.now();
@@ -40,6 +45,7 @@ public class Course {
 	
 	public Course() {
 		this.students = new ArrayList<Student>();
+		this.exams = new ArrayList<>();
 	}
 
 	public Long getId() {
@@ -89,5 +95,20 @@ public class Course {
 	public void removeStudent(Student student) {
 		this.students.remove(student);
 	}
+
+	public List<Exam> getExams() {
+		return exams;
+	}
+
+	public void setExams(List<Exam> exams) {
+		this.exams = exams;
+	}
 	
+	public void addExam(Exam exam) {
+		this.exams.add(exam);
+	}
+	
+	public void removeExam(Exam exam) {
+		this.exams.remove(exam);
+	}
 }

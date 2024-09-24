@@ -6,7 +6,9 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
 @EntityScan({"com.microservice.commons.students.models.entity",
-			 "com.app.microservice.courses.models.entity"})
+		     "com.microservice.commons.exams.models.entity",
+			 "com.app.microservice.courses.models.entity"
+			})
 public class MicroserviceCoursesApplication {
 
 	public static void main(String[] args) {

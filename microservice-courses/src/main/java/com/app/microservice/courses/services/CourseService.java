@@ -5,4 +5,6 @@ import com.microservice.commons.services.CommonService;
 
 public interface CourseService extends CommonService<Course> {
 
+	public Course findCourseByStudentId(Long id);
+	
 }

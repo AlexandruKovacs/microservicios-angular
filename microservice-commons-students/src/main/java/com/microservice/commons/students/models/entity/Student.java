@@ -85,6 +85,4 @@ public class Student {
 		
 		return this.id != null && this.id.equals(s.getId());
 	}
-	
-	
 }

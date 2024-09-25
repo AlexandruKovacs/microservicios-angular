@@ -17,6 +17,9 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name="exams")
@@ -26,6 +29,8 @@ public class Exam {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotEmpty
+	@Size(min = 4, max = 30)
 	private String name;
 	
 	@Column(name = "create_at")
@@ -36,6 +41,7 @@ public class Exam {
 	private List<Question> questions;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
+	@NotNull
 	private Subject subject;
 
 	public Exam() {

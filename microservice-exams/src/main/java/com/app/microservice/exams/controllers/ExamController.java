@@ -4,6 +4,8 @@ import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -18,7 +20,11 @@ import com.microservice.commons.exams.models.entity.Exam;
 public class ExamController extends CommonController<Exam, ExamService> {
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<?> editExam(@RequestBody Exam exam, @PathVariable Long id) {
+	public ResponseEntity<?> editExam(@Validated @RequestBody Exam exam, BindingResult result, @PathVariable Long id) {
+		
+		if (result.hasErrors()) {
+			return this.validate(result);
+		}
 		
 		Optional<Exam> optionalExam = service.findById(id);
 		

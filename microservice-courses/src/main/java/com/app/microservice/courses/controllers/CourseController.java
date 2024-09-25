@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -21,7 +23,11 @@ import com.microservice.commons.students.models.entity.Student;
 public class CourseController extends CommonController<Course, CourseService> {
 
 	@PutMapping("/{id}")
-	public ResponseEntity<?> editCourse(@RequestBody Course course, @PathVariable Long id) {
+	public ResponseEntity<?> editCourse(@Validated @RequestBody Course course, BindingResult result, @PathVariable Long id) {
+		
+		if (result.hasErrors()) {
+			return this.validate(result);
+		}
 		
 		Optional<Course> optionalCourse = service.findById(id);
 		

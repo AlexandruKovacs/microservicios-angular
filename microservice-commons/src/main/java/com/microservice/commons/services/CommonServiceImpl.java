@@ -5,10 +5,11 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.transaction.annotation.Transactional;
 
-public class CommonServiceImpl<E, R extends PagingAndSortingRepository<E, Long>> implements CommonService<E> {
+import com.microservice.commons.repository.CrudAndPagingAndSortingRepository;
+
+public class CommonServiceImpl<E, R extends CrudAndPagingAndSortingRepository<E, Long>> implements CommonService<E> {
 
 	@Autowired
 	protected R repository;
